@@ -1,0 +1,144 @@
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, .5);
+    height: 100vh;
+    min-width: 380px;
+}
+
+.modalContent {
+    flex-direction: column;
+    flex: 1 1;
+    cursor: default;
+    background-color: #1f3641;
+    height: 266px;
+}
+
+.modalContent h3 {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    line-height: 40px;
+    letter-spacing: 2.5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modalContent p {
+    font-size: 1.6rem;
+    line-height: 20.16px;
+    letter-spacing: 1px;
+    margin-bottom: 16px
+}
+
+.modalContent h3,
+.modalContent p {
+    font-weight: 700;
+    color: #a8bfc9;
+}
+
+.modal,
+.modalContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalFooter {
+    display: flex;
+    gap: 16px
+}
+
+.modalFooter button {
+    border: none;
+    cursor: pointer;
+    height: 52px;
+    padding: 0 16px 1px;
+    border-radius: 10px;
+    font-size: 1.6rem;
+    line-height: 20.16px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #1a2a33;
+    width: auto;
+}
+
+.modalContent .winnerX {
+    color: #31c3bd;
+    font-size: 4rem;
+}
+
+.modalContent .winnerO {
+    color: #f2b137;
+    font-size: 4rem;
+}
+
+.grey {
+    background: #a8bfc9;
+    box-shadow: inset 0 -4px 0 #6b8997;
+}
+
+.modalFooter .grey:hover {
+    background: #dbe8ed;
+}
+
+.orange {
+    background: #f2b137;
+    box-shadow: inset 0 -8px 0 #cc8b13
+}
+
+.modalFooter .orange:hover {
+    background: #ffc860
+}
+
+.roomContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.roomInput {
+    height: 30px;
+    width: 20em;
+    font-size: 17px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 auto 20px auto;
+    color: #1a2a33;
+    font-weight: 600;
+}
+
+@media(max-width: 500px) {
+    .modalContent h3 {
+        font-size: large;
+    }
+
+    .modalContent .winnerX,
+    .modalContent .winnerO {
+        font-size: 1.6rem;
+    }
+
+    .modalContent p{
+        font-size: large;
+    }
+
+    .modalContent img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .modalFooter button {
+        font-size: 1rem;
+    }
+
+    .roomInput {
+        width: 18em;
+    }
+}
