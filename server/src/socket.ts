@@ -1,9 +1,10 @@
 import http from 'http';
+import https from 'https'
 import { Server as SocketServer, } from "socket.io";
 import { getRoom } from './helpers/getRoom';
 const server = require('./server');
 
-const app = http.createServer(server)
+const app = https.createServer(server)
 
 const io = new SocketServer(app, {
     cors: {
