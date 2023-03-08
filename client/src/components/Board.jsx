@@ -64,6 +64,7 @@ export const Board = () => {
             gameWin(socket, newWinner, score)
         } else if (checkEndGame(newBoard)) {
             setWinner(false)
+            setOpenWinnerModal(true)
             setScore({
                 ...score,
                 tie: score.tie += 1

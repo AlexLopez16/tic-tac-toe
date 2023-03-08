@@ -17,7 +17,6 @@ function App() {
         connectSocket();
     }, [])
 
-
     const [isInRoom, setIsInRoom] = useState(false)
     const RoomRender = () => {
         if (!isInRoom) {

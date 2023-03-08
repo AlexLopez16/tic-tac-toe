@@ -17,7 +17,11 @@ export const WinnerModal = ({ player, winner, openWinnerModal, setOpenWinnerModa
     const handleNewGame = () => {
         resetGame()
         setOpenWinnerModal(false)
-        newGame(socket, winner)
+        if (winner === false) {
+            newGame(socket, player)
+        } else {
+            newGame(socket, winner)
+        }
     }
 
     const WinnerLabel = () => {
@@ -45,9 +49,19 @@ export const WinnerModal = ({ player, winner, openWinnerModal, setOpenWinnerModa
 
     const WinnerDecision = () => {
         if (winner === player) return null;
-        return (
-            <p>Waiting for the winner decision...</p>
-        )
+
+        if (player !== 'X' && winner === false) {
+            return (
+                <p>Waiting for the player X decision...</p>
+            )
+        }
+
+        if (winner !== player && winner !== false) {
+            return (
+                <p>Waiting for the winner decision...</p>
+            )
+        }
+
     }
 
     return (
@@ -57,9 +71,15 @@ export const WinnerModal = ({ player, winner, openWinnerModal, setOpenWinnerModa
                 <TieLabel />
                 <WinnerDecision />
                 <div className={styles.modalFooter}>
-                    <button className={styles.grey} style={{ fontSize: '1rem' }} onClick={handleQuit}> QUIT </button>
+                    <button className={styles.grey} style={{ fontSize: '1rem' }} onClick={handleQuit}>
+                        QUIT
+                    </button>
                     {
-                        winner === player && <button className={styles.orange} style={{ fontSize: '1rem' }} onClick={handleNewGame}> NEXT ROUND </button>
+                        (winner === player || winner === false && player === 'X') && (
+                            <button className={styles.orange} style={{ fontSize: '1rem' }} onClick={handleNewGame}>
+                                NEXT ROUND
+                            </button>
+                        )
                     }
                 </div>
             </div>
