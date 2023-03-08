@@ -50,7 +50,6 @@ io.on('connection', (socket) => {
     })
 
     socket.on('game_win', (message) => {
-        console.log({ message });
         const gameRoom = getRoom(socket)
         socket.to(gameRoom).emit('on_game_win', message)
     })
