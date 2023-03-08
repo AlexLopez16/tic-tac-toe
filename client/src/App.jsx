@@ -4,9 +4,10 @@ import { GameRoom } from './pages/GameRoom';
 import socketService from './services/socketService';
 
 function App() {
+    const URL = import.meta.env.VITE_REACT_APP_API_URL;
     const connectSocket = async () => {
         await socketService
-            .conect('http://localhost:3001')
+            .conect(URL)
             .catch(err => {
                 console.log('Error: ', err);
             })
